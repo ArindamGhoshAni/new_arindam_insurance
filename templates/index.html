@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body, html {
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    .bg-img {
+      /* The image used */
+      background-image: url("static/pics/index_background.jpg");
+    
+      min-height: 768px;
+    
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    
+    /* Add styles to the form container */
+    .container {
+      position: absolute;
+      right: 0;
+      margin: 20px;
+      max-width: 650px;
+      padding: 20px;
+      background-color: white;
+    }
+    
+    /* Full-width input fields */
+    input[type=number], select{
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+    }
+    
+    input[type=number]:focus, select:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    
+    /* Set a style for the submit button */
+    .btn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px 20px;
+      font-size: 30px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+    
+    .btn:hover {
+      opacity: 1;
+    }
+    
+    </style>
+  </head>
+  <body>
+        <div class="bg-img">
+         <form action ="{{url_for('predict')}}" method ="post" class="container">
+          <h1>Premium Calculator</h1>
+       <b>AGE OF THE PERSON</b><input type="number" name='a' placeholder = "Enter your age" required = "required">
+             <label for="Sex"><b>SEX</b></label>
+            <select id="Sex" name="sex" required = "required">
+                <option value="" disabled selected>Select option </option>
+             <option value=1>Male</option><option value=0>Female</option>
+            </select>
+            <b>BODY MASS INDEX (BMI)  </b><input type="number" name='c' placeholder = "Example : 21" required = "required">
+            <b>CHILDREN</b><input type="number" name='d' placeholder = "How many kids you have" required = "required">
+             <label for="Smoker"><b>SMOKER</b></label>
+                <select id="Smoker" name="smoker"  placeholder = "select" required = "required">
+                 <option value="" disabled selected>Select option </option><option value=1>Yes</option><option value=0 >No</option>
+             </select>
+                <label for="region"><b>REGION</b></label>
+                <select id="Region" name="region"  placeholder = "Select" required = "required">
+                 <option value="" disabled selected>Select option</option>
+                    <option value=0>South - West</option>
+                    <option value=1 >South - East</option>
+                    <option value=2 >North - West</option>
+                    <option value=3 >North - East</option>
+             </select> 
+       </b>
+        <button id="sub" type="submit" class="btn" >Calculate pemium</button>
+      </form>
+      <br>
+      <br>
+      <br>
+      
+      <h1 style="font-size:50px;color:white">{{prediction_text}}</h1>
+    </div>
+    
+    
+  </div>
+  
+
+    
+  
+          </body>
+        
+        </html>

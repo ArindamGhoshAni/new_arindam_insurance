@@ -8,3 +8,4 @@ pymongo
 collection
 pandas
 pymongo[srv]
+matplotlib
